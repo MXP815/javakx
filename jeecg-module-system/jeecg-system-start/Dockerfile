@@ -1,16 +1,13 @@
 FROM registry.cn-hangzhou.aliyuncs.com/dockerhub_mirror/java:21-anolis
 
-MAINTAINER jeecgos@163.com
+LABEL maintainer="鲜农仓-WMS" description="鲜农仓-农产品冷链仓储系统后端"
 
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-#RUN mkdir -p /jeecg-boot/config/jeecg/
+WORKDIR /app
 
-WORKDIR /jeecg-boot
+EXPOSE 8089
 
-EXPOSE 8080
-
-#ADD ./src/main/resources/jeecg ./config/jeecg
 ADD ./target/jeecg-system-start-3.8.1.jar ./
 
 CMD sleep 60;java -Djava.security.egd=file:/dev/./urandom -jar jeecg-system-start-3.8.1.jar

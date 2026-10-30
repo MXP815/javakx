@@ -1,6 +1,6 @@
 version: '2'
 services:
-  jeecg-boot-mysql:
+  xnc-wms-mysql:
     build:
       context: ./db
     environment:
@@ -9,8 +9,8 @@ services:
       MYSQL_PASSWORD: CHANGE_ME
       TZ: Asia/Shanghai
     restart: always
-    container_name: jeecg-boot-mysql
-    image: jeecg-boot-mysql
+    container_name: xnc-wms-mysql
+    image: xnc-wms-mysql
     command:
       --character-set-server=utf8mb4
       --collation-server=utf8mb4_general_ci
@@ -21,33 +21,33 @@ services:
     ports:
       - 3306:3306
     networks:
-      - jeecg-boot
+      - xnc-wms
 
-  jeecg-boot-redis:
+  xnc-wms-redis:
     image: registry.cn-hangzhou.aliyuncs.com/jeecgdocker/redis:5.0
     ports:
       - 6379:6379
     restart: always
-    hostname: jeecg-boot-redis
-    container_name: jeecg-boot-redis
+    hostname: xnc-wms-redis
+    container_name: xnc-wms-redis
     networks:
-      - jeecg-boot
+      - xnc-wms
 
-  jeecg-boot-system:
+  xnc-wms-system:
     build:
       context: ./jeecg-module-system/jeecg-system-start
     restart: on-failure
     depends_on:
-      - jeecg-boot-mysql
-      - jeecg-boot-redis
-    container_name: jeecg-boot-system
-    image: jeecg-boot-system
-    hostname: jeecg-boot-system
+      - xnc-wms-mysql
+      - xnc-wms-redis
+    container_name: xnc-wms-system
+    image: xnc-wms-system
+    hostname: xnc-wms-system
     ports:
       - 8089:8089
     networks:
-      - jeecg-boot
+      - xnc-wms
 
 networks:
-  jeecg-boot:
-    name: jeecg_boot
+  xnc-wms:
+    name: xnc_wms
