@@ -1,0 +1,30 @@
+# Maven 构建产物
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# 编译产物
+*.class
+
+# 日志
+logs/
+*.log
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+.vscode/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 运行时
+*.pid
+
+# 工具记忆文件
+.workbuddy/
