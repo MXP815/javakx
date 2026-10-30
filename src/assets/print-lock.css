@@ -1,0 +1,17 @@
+
+@media print {
+  table {
+    border-collapse: collapse; /* 确保边框合并为一个单一的边框 */
+  }
+  table, th, td {
+    border: 1px solid black; /* 设置表格、表头和单元格的边框 */
+  }
+  .hiprint-printPaper {
+    position: relative;
+    padding: 0 0 0 0;
+    page-break-after: always;
+    overflow-x: hidden;
+    overflow: hidden;
+  }
+}
+

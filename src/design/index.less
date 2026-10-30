@@ -1,0 +1,402 @@
+@import 'transition/index.less';
+@import 'var/index.less';
+@import 'public.less';
+@import 'ant/index.less';
+@import './theme.less';
+@import './entry.css';
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+}
+
+:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+html {
+  overflow: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  // body添加行高保持跟3.x一致
+  line-height: 1.5715;
+  // ========== 农产品特色背景：麦田照片（固定不随页面滚动） ==========
+  background-color: #e8f5e9;
+  background-image:
+    // 白色柔光罩层，保证内容可读性
+    linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)),
+    url(../assets/images/wheat-bg.png);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  &.color-weak {
+    filter: invert(80%);
+  }
+
+  &.gray-mode {
+    filter: grayscale(100%);
+    filter: progid:dximagetransform.microsoft.basicimage(grayscale=1);
+  }
+}
+
+// ========== 农产品特色背景 - 内容区域半透明白色 ==========
+.ant-layout {
+  background: transparent !important;
+}
+
+.jeecg-default-layout {
+  background: transparent !important;
+}
+
+// 侧边栏背景保持白色半透明
+.ant-layout-sider {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(8px);
+}
+
+// 头部背景半透明
+.ant-layout-header {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(10px);
+}
+
+// 标签页背景半透明
+.ant-tabs-nav {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+}
+
+// 卡片内容区域背景
+.ant-card {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(4px);
+}
+
+// 表格区域背景
+.ant-table-wrapper {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 8px;
+}
+
+.ant-table {
+  background: transparent !important;
+}
+
+.ant-table-container {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+}
+
+// 内容区域主容器
+.jeecg-page-wrapper {
+  background-color: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(6px);
+  border-radius: 8px;
+  margin: 12px;
+  padding: 12px;
+}
+
+// ========== 农元素：暖色麦浪阴影 + 圆角 ==========
+.ant-card,
+.jeecg-page-wrapper,
+.ant-table-wrapper {
+  box-shadow: 0 2px 14px rgba(176, 132, 30, 0.1) !important;
+}
+
+// ========== 农元素：空数据表格换成麦穗插画 ==========
+.ant-empty-image {
+  svg {
+    display: none;
+  }
+  width: 84px !important;
+  height: 60px !important;
+  margin: 8px auto !important;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='%23d4a017'%3E%3Cellipse cx='32' cy='9' rx='4.5' ry='7'/%3E%3Cellipse cx='24' cy='17' rx='4.5' ry='7' transform='rotate(-28 24 17)'/%3E%3Cellipse cx='40' cy='17' rx='4.5' ry='7' transform='rotate(28 40 17)'/%3E%3Cellipse cx='22' cy='29' rx='4.5' ry='7' transform='rotate(-28 22 29)'/%3E%3Cellipse cx='42' cy='29' rx='4.5' ry='7' transform='rotate(28 42 29)'/%3E%3Cellipse cx='24' cy='41' rx='4.5' ry='7' transform='rotate(-28 24 41)'/%3E%3Cellipse cx='40' cy='41' rx='4.5' ry='7' transform='rotate(28 40 41)'/%3E%3C/g%3E%3Crect x='30' y='44' width='4' height='15' rx='2' fill='%2343A047'/%3E%3C/svg%3E") no-repeat center / contain;
+  opacity: 0.85;
+}
+
+// ========== 农元素：表格表头麦浪渐变 ==========
+// antd BasicTable 表头
+.ant-table-thead > tr > th {
+  background: linear-gradient(180deg, #fdf8ea 0%, #f7e9c3 55%, #f3dfa4 100%) !important;
+  color: #6b5410 !important;
+  border-bottom: 2px solid #e8d194 !important;
+}
+
+.ant-table-thead > tr > th::before {
+  background-color: #e8d194 !important;
+}
+
+// vxe-table（online 表单）表头
+.vxe-table--render-default .vxe-table--header-wrapper,
+.vxe-table--render-default .vxe-header--column {
+  background-image: linear-gradient(180deg, #fdf8ea 0%, #f7e9c3 55%, #f3dfa4 100%) !important;
+  color: #6b5410 !important;
+}
+
+.vxe-table--render-default .vxe-table--header-wrapper {
+  border-bottom: 2px solid #e8d194;
+}
+
+/* 【LOWCOD-2300】【vue3】online--online表单开发，下拉框位置靠下时，点开下拉框，整屏跳 */
+body {
+  overflow: visible;
+  overflow-x: hidden;
+}
+
+a:focus,
+a:active,
+button,
+div,
+svg,
+span {
+  outline: none !important;
+}
+
+// 保持 和 windi 一样的全局样式，减少升级带来的影响
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+// 保持 和 windi 一样的全局样式，减少升级带来的影响
+
+// update-begin--author:liaozhiyang---date:20230925---for：【issues/5407】字段信息校验是多行提示会被遮挡
+.vxe-cell--valid-error-msg {
+  white-space: nowrap;
+}
+// update-end--author:liaozhiyang---date:20230925---for：【issues/5407】字段信息校验是多行提示会被遮挡
+
+// update-begin--author:liaozhiyang---date:20231013---for：【QQYUN-5133】升级之后提示样式跟之前一致
+.vxe-table .vxe-body--row:last-child .vxe-cell--valid-error-hint {
+  margin-top: auto;
+}
+.vxe-cell--valid-error-hint {
+  margin-top: 6px;
+}
+.vxe-cell--valid-error-msg {
+  display: inline-block;
+  border-radius: 4px !important;
+  padding: 8px 12px !important;
+  color: #fff !important;
+  background-color: #f56c6c !important;
+  
+}
+// update-end--author:liaozhiyang---date:20231013---for：【QQYUN-5133】升级之后提示样式跟之前一致
+// update-begin--author:liaozhiyang---date:20231116---for：【QQYUN-7011】online表单多了一个蓝色的边框
+// .vxe-table.vxe-table--render-default .vxe-body--column.col--selected {
+//   box-shadow: none;
+// }
+// update-end--author:liaozhiyang---date:20231116---for：【QQYUN-7011】online表单多了一个蓝色的边框
+
+// update-begin--author:liaozhiyang---date:20240424---for：【issues/1175】解决vxetable鼠标hover之后title显示不对的问题
+.vxe-cell {
+  pointer-events: none;
+  > * {
+    pointer-events: auto;
+  }
+}
+// update-end--author:liaozhiyang---date:20240424---for：【issues/1175】解决vxetable鼠标hover之后title显示不对的问题
+
+// update-begin--author:liaozhiyang---date:20240429---for：【QQYUN-9023】引导样式调整
+.introjs-tooltipReferenceLayer {
+  .introjs-tooltip-title {
+    font-size: 15px;
+  }
+  .introjs-skipbutton {
+    font-size: 20px;
+    line-height: 35px;
+    height: 35px;
+    width: 35px;
+    font-weight: 500;
+  }
+  .introjs-tooltiptext {
+    padding: 16px;
+    font-size: 14px;
+  }
+  .introjs-bullets {
+    padding-top: 0;
+    padding-bottom: 8px;
+  }
+  .introjs-bullets ul li a {
+    width: 4px;
+    height: 4px;
+  }
+  .introjs-button {
+    padding: .2rem 0.5rem;
+    font-size: 13px;
+  }
+}
+// update-end--author:liaozhiyang---date:20240429---for：【QQYUN-9023】引导样式调整
+
+// update-begin--author:liaozhiyang---date:20240605---for：【TV360X-857】online代码生成详情样式调整
+
+html[data-theme='light'] {
+  .jeecg-form-detail-effect {
+    *:not(.ant-select-selection-placeholder){
+      color: #606266!important;
+    }
+    .ant-row label {
+      color: #797c81 !important;
+    }
+    .ant-select-selector,
+    .ant-btn,
+    .ant-input,
+    .ant-input-affix-wrapper,
+    .ant-picker,
+    .ant-input-number {
+      // border: none !important;
+      // color: rgba(51, 51, 51, 0.25) !important;
+      color: #606266!important;
+      background-color: #f9f9fa !important;
+    }
+
+    a,
+    .anticon {
+      pointer-events: none;
+      cursor: text;
+      color: #606266!important;
+      &:hover {
+        background: transparent;
+      }
+    }
+
+    .ant-select.ant-select-disabled .ant-select-selection-item .ant-select-selection-item-content {
+      color: #606266!important;
+    }
+    .ant-select-selection-item {
+      color: #606266!important;
+    }
+
+    :where(.css-dev-only-do-not-override-dvamda).ant-picker .ant-picker-input >input-disabled, :where(.css-dev-only-do-not-override-dvamda).ant-picker .ant-picker-input >input[disabled] {
+      color: #606266!important;
+    }
+    .ant-select-selection-item {
+      border-color: #eee !important;
+      background-color: transparent !important;
+    }
+  }
+}
+html[data-theme='dark'] {
+  .jeecg-form-detail-effect {
+    * {
+      color: #606266;
+    }
+    .ant-upload-text-icon, a {
+      color:rgba(255, 255, 255, 0.25) ;
+    }
+    .ant-select-selector,
+    .ant-btn,
+    .ant-input,
+    .ant-input-affix-wrapper,
+    .ant-picker,
+    .ant-input-number {
+      background-color: transparent !important;
+    }
+
+    .ant-select-selection-item {
+      background-color: transparent !important;
+    }
+    // 暗黑模式下输入框等icon隐藏
+    .ant-picker-suffix,.ant-select-arrow {
+      content:" ";
+      display: none;
+    }
+  }
+}
+.jeecg-form-detail-effect {
+  .ant-select-selector,
+  .ant-btn,
+  .ant-input,
+  .ant-input-affix-wrapper,
+  .ant-picker,
+  .ant-input-number {
+    border: none !important;
+  }
+  a,
+  .anticon {
+    pointer-events: none;
+    cursor: text;
+    &:hover {
+      background: transparent;
+    }
+  }
+  .ant-picker {
+    width: 100%;
+  }
+  textarea {
+    resize: none !important;
+  }
+  input {
+    border: none !important;
+  }
+  input, textarea {
+    user-select: auto;
+    cursor: text !important;
+  }
+  .JSelectDept,
+  .JselectUser,
+  .JSelectPosition {
+    > div {
+      > .ant-row {
+        .left {
+          width: 100%;
+        }
+        .right {
+          display: none;
+        }
+      }
+    }
+  }
+  .ant-select-selection-item-remove {
+    display: none;
+  }
+  .jeecg-j-upload-container {
+    .ant-upload {
+      display: none;
+    }
+    .ant-upload-list-item-done {
+      a {
+        pointer-events: auto !important;
+        cursor: pointer !important;
+      }
+      .ant-upload-list-item-actions {
+        display: none;
+      }
+    }
+  }
+  .ant-upload-picture-card-wrapper {
+    .ant-upload {
+      pointer-events: none;
+      cursor: not-allowed;
+      .ant-upload-text,.anticon {
+       display: none;
+      }
+    }
+    .ant-upload-list-item-done {
+      a {
+        pointer-events: auto !important;
+        cursor: pointer !important;
+      }
+      .ant-btn {
+        display: none;
+      }
+    }
+  }
+}
+// update-end--author:liaozhiyang---date:20240605---for：【TV360X-857】online代码生成详情样式调整
+
+// update-begin--author:wangshuai---date:20240611---for：【TV360X-1070】一对多内嵌，为什么多这一块，不从头对齐
+.ant-table-wrapper .ant-table.ant-table-middle .ant-table-tbody .ant-table-wrapper:only-child .ant-table{
+  margin-block: 0;
+  margin-inline: 0;
+}
+// update-end--author:wangshuai---date:20240611---for：【TV360X-1070】一对多内嵌，为什么多这一块，不从头对齐
