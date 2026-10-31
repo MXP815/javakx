@@ -4,9 +4,9 @@ services:
     build:
       context: ./db
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
       MYSQL_ROOT_HOST: '%'
-      MYSQL_PASSWORD: CHANGE_ME
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-root}
       TZ: Asia/Shanghai
     restart: always
     container_name: xnc-wms-mysql
