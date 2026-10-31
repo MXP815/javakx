@@ -31,7 +31,7 @@
 ## 快速启动
 
 1. 初始化数据库：创建库 `fengguwms`（utf8mb4），导入 `db/` 目录下的 SQL 脚本
-2. 修改 `jeecg-module-system/jeecg-system-start/src/main/resources/application-dev.yml` 中的 MySQL / Redis 连接信息
+2. 复制配置模板并填写本机连接信息：把 `jeecg-module-system/jeecg-system-start/src/main/resources/application-dev.example.yml` 复制为同目录下的 `application-dev.yml`，填入 MySQL / Redis 密码（该文件已被 `.gitignore` 忽略，不会提交）
 3. 构建并启动：
 
 ```bash

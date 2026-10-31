@@ -26,5 +26,9 @@ Thumbs.db
 # 运行时
 *.pid
 
+# 本地环境配置（含数据库/Redis/OSS 密钥，不提交）
+jeecg-module-system/jeecg-system-start/src/main/resources/application-dev.yml
+jeecg-module-system/jeecg-system-start/src/main/resources/application-local.yml
+
 # 工具记忆文件
 .workbuddy/
