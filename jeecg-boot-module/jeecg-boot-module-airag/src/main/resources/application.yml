@@ -54,13 +54,13 @@ spring:
           ## !!!!!MYSQL
           url: jdbc:mysql://localhost:3306/jeecg-boot-dev?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
           username: root
-          password: CHANGE_ME
+          password: # TODO 填写你的 MySQL 密码
           driver-class-name: com.mysql.cj.jdbc.Driver
   redis:
     database: 0
     host: 192.168.1.188
     port: 6379
-    password: 'CHANGE_ME'
+    password: # TODO 填写你的 Redis 密码
 jeecg:
   ai-rag:
     embed-store:
